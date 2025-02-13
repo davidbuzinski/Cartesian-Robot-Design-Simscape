@@ -32,9 +32,6 @@ on:
       - '**.txt'
       - '**.xml'
 
-  schedule:
-    - cron:  '55/61 20/25 1/6 * *' # schedule a weekly-ish build
-
 jobs:
 
   job-check-project:
@@ -44,6 +41,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - run: sudo apt-get update && sudo apt-get install 
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v2
         with:
